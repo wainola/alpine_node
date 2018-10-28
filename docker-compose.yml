@@ -1,11 +1,18 @@
 version: '2.1'
 
 services:
+  postgres:
+    image: postgres:11.0-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=alpine_node
   alpinenode:
-    image: alpinenode
+    image: alpine_node
     build: .
     environment:
-      NODE_ENV: production
-      PORT: 4500
+      NODE_ENV=production
+      PORT=4500
+      DATABASE_URL=postgres://postgres:password@postgres:5432/alpine_node
     ports:
       - 4500:4500
