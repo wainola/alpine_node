@@ -5,6 +5,7 @@ COPY ./package.json /src/package.json
 COPY ./package-lock.json /src/package-lock.json
 
 RUN npm install --silent
+RUN npm install -g knex
 COPY ./ /src
 
 EXPOSE 4500
