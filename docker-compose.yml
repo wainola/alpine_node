@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  alpinenode:
+    image: alpinenode
+    build: .
+    environment:
+      NODE_ENV: production
+      PORT: 4500
+    ports:
+      - 4500:4500
